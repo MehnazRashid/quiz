@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    /* Background image */
+   
     background: url("/static/banner_idk.jpg") no-repeat center center/cover;
 
     color: #eee;

@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = 'possibly_why'
 
-# Store exams in memory (for demo purposes)
 exams = {}
 
 def parse_questions(questions_text):
-    """Parse questions text with strict formatting (no space after question number)"""
     questions = []
     current_question = None
     question_count = 0
@@ -16,8 +14,7 @@ def parse_questions(questions_text):
         line = line.strip()
         if not line:
             continue
-            
-        # Check for question line (format "1.Question text")
+
         parts = line.split('.', 1)
         if len(parts) == 2 and parts[0].isdigit():
             question_count += 1
