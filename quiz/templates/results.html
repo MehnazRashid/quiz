@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="x">
+    <h1>Exam Results</h1>
+<p>Your score: {{ score }}/{{ total }}</p>
+<div class="results">
+    {% for i in range(total) %}
+    <div class="question-result {% if results[i] %}correct{% else %}incorrect{% endif %}">
+        <p>{{ questions[i].text }}</p>
+        <p>Your answer: <b>{% if i < user_answers|length %}{{ user_answers[i] }}{% else %}(not answered){% endif %}</b></p>
+        <p>Correct answer: <b>{{ correct_answers[i] }}</b></p>
+    </div>
+    {% endfor %}
+</div>
+<div class="bye"><center><a href="/" class="L">Create another exam</a><center></div>
+
+
+</div>
+{% endblock %}

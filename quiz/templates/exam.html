@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="aaa">
+    <h1>MCQ Exam</h1>
+<form method="POST" action="/submit-exam/{{ exam_id }}">
+    {% for question in questions %}
+    <div class="question">
+        <p>{{ question.number }}. {{ question.text }}</p>
+        <div class="options">
+            {% for option in question.options %}
+            <div class="option">
+                <input type="radio" 
+                       id="q{{ question.number }}_{{ loop.index0 }}" 
+                       name="q{{ question.number }}" 
+                       value="{{ option[0] }}">
+                <label for="q{{ question.number }}_{{ loop.index0 }}">
+                    {{ option }}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    <center> <button type="submit">Submit Exam</button></center>
+</form>
+</div>
+{% endblock %}

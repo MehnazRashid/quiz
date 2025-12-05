@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="a">
+    <div class="more">
+        <h1>Copy This Prompt to ChatGPT</h1>
+<div class="prompt-box">
+    <textarea readonly>{{ prompt_text }}</textarea>
+</div>
+<p>After you get the response from ChatGPT, paste the questions and answers below:</p>
+<form method="POST" action="/exam">
+    <div class="v">
+        <label for="questions">Questions:</label>
+        <textarea id="questions" name="questions" rows="15" required></textarea>
+    </div>
+    <div class="v">
+        <label for="answers">Answers (one letter per line):</label>
+        <textarea id="answers" name="answers" rows="10" required></textarea>
+    </div>
+   <center>  <button type="submit">Create Exam</button> </center>
+</form>
+    </div>
+</div>
+{% endblock %}

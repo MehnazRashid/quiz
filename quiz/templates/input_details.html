@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="a">
+    <h1>Enter Exam Details</h1>
+<form method="POST" action="/input-details">
+    <div class="d">
+        <label for="topic_or_material">
+            {% if session['input_method'] == 'topic' %}
+                Enter the topic name:
+            {% else %}
+                Paste your study material:
+            {% endif %}
+        </label>
+        {% if session['input_method'] == 'topic' %}
+            <input type="text" id="topic_or_material" name="topic_or_material" required> 
+        {% else %}
+         <textarea id="topic_or_material" name="topic_or_material" rows="5" required></textarea>
+        {% endif %}
+    </div>
+    <div class="d">
+        <label for="mcq_count">Number of MCQs:</label>
+        <input type="number" id="mcq_count" name="mcq_count" min="1" max="50" value="10" required >
+    </div>
+   <center> <button type="submit">Generate Prompt</button></center>
+</form>
+</div>
+{% endblock %}

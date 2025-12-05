@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="a">
+    <h1>MCQ Exam Generator</h1>
+    <img src="quiz/static/download__8_-removebg-preview.png" alt="">
+<p>Choose how you want to generate your exam:</p>
+<form method="POST" action="/input">
+    <div class="form-group">
+        <input type="radio" id="topic" name="input_method" value="topic" class="b" checked >
+        <label for="topic">By Topic Name</label>
+    </div>
+    <div class="form-group">
+        <input type="radio" id="material" name="input_method" value="material" class="b">
+        <label for="material">By Study Material</label>
+    </div>
+   <center> <button type="submit">Continue</button></center>
+</form>
+</div>
+{% endblock %}
